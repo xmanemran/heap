@@ -13,9 +13,11 @@ class MinHeap {
     return this.data[0];
   }
   pop(){
-    var min = this.data[0];
-    this.data[0] = this.data.pop();
-    this.bubbleDown(0);
+    var min = this.data[0] || null;
+    if (this.size() > 1) {
+      this.data[0] = this.data.pop();
+      this.bubbleDown(0);
+    } else this.data.pop();
     return min;
   }
   bubbleUp(index){
